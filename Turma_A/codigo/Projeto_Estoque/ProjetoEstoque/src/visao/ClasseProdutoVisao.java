@@ -3,14 +3,14 @@ package visao;
 import java.util.ArrayList;
 
 import dominio.ClasseProduto;
-import fakedb.ClasseProdutoFakeDB;
+import repositorio.ClasseProdutoRepo;
+
 
 public class ClasseProdutoVisao {
     public void Exibir(){
-
-        ClasseProdutoFakeDB fakedb = new ClasseProdutoFakeDB();
-        ArrayList<ClasseProduto> tab = fakedb.getTabela();
-        for (ClasseProduto cp : tab) {
+        ClasseProdutoRepo repo = new ClasseProdutoRepo();
+        ArrayList<ClasseProduto> lista = repo.Browse();
+        for (ClasseProduto cp : lista) {
             this.Imprimir(cp);
         }
     }
