@@ -3,19 +3,19 @@ package repositorio;
 import dominio.ClasseProduto;
 import fakedb.ClasseProdutoFakeDB;
 
-public class ClasseProdutoRepo extends BaseRepositorio<ClasseProduto> {
+public class ClasseProdutoRepositorio extends BaseRepositorio<ClasseProduto> {
 
     private ClasseProdutoFakeDB db;
 
-    public ClasseProdutoRepo(){
+    public ClasseProdutoRepositorio(){
         this.db = new ClasseProdutoFakeDB();
         this.dados = this.db.getTabela();
     }
 
     @Override
     public ClasseProduto Read(int chave) {
-        for (ClasseProduto cp : dados) {
-            if (chave == cp.getCodigo()){
+        for (ClasseProduto cp : this.dados) {
+            if (cp.getCodigo() == chave){
                 return cp;
             }
         }
@@ -36,8 +36,7 @@ public class ClasseProdutoRepo extends BaseRepositorio<ClasseProduto> {
 
     @Override
     public ClasseProduto Add(ClasseProduto instancia) {
-        ClasseProduto cp = this.dados.getLast();
-        int proxChave = cp.getCodigo() + 1;
+        int proxChave = this.dados.getLast().getCodigo() + 1;
         instancia.setCodigo(proxChave);
         this.dados.add(instancia);
         return instancia;
@@ -53,6 +52,5 @@ public class ClasseProdutoRepo extends BaseRepositorio<ClasseProduto> {
         else{
             return null;
         }
-        
-    }        
+    }    
 }
