@@ -1,6 +1,7 @@
 package visao;
 
 import java.util.ArrayList;
+import java.time.LocalDate;
 import dominio.ClasseProduto;
 import servico.ClasseProdutoServico;
 
@@ -26,5 +27,12 @@ public class ClasseProdutoVisao {
         System.out.println("Descrição: " + cp.getDescricao());
         System.out.println("Data de Inclusão: " + cp.getDataInclusao());
         System.out.println("--------------------------------------------------------");
+    }
+
+    public void Criar(){
+        ClasseProduto novo = new ClasseProduto(0, "Teste", LocalDate.now());
+        ClasseProdutoServico srv = new ClasseProdutoServico();
+        srv.Adicionar(novo);
+        Imprimir(novo);
     }
 }
