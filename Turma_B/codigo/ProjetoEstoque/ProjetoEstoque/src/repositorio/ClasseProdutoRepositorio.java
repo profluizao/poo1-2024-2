@@ -15,8 +15,14 @@ public class ClasseProdutoRepositorio
 
     @Override
     public ClasseProduto Create(ClasseProduto instancia) {
-        int proxChave = this.fonteDeDados.getLast().getCodigo();
-        proxChave++;
+        
+        int pos = this.fonteDeDados.size() - 1;
+        ClasseProduto cp = this.fonteDeDados.get(pos);
+        int proxChave = cp.getCodigo() + 1;
+
+        //int proxChave = this.fonteDeDados.getLast().getCodigo();
+        //proxChave++;
+
         instancia.setCodigo(proxChave);
         this.fonteDeDados.add(instancia);
         return instancia;
