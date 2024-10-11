@@ -1,10 +1,8 @@
-import visao.ClasseProdutoVisao;
+import visao.ClasseProdutoMenu;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        ClasseProdutoVisao visao = new ClasseProdutoVisao();
-        visao.ExibirEmLinha();
-        visao.CriarListar();
-        visao.ExibirEmLinha();
+        ClasseProdutoMenu menuzinho = new ClasseProdutoMenu();
+        menuzinho.ExibirMenu();
     }
 }
